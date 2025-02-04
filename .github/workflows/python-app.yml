@@ -1,0 +1,22 @@
+name: Run Python Script
+
+on:
+  push:
+    branches:
+      - main  # Runs the script whenever you push to 'main' branch
+  workflow_dispatch:  # Allows manual triggering of workflow
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Fetches the latest code from your repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Installs the latest Python 3 version
+
+      - name: Run Python Script
+        run: python x.py  # Runs your Python script
